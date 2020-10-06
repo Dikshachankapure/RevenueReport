@@ -1,0 +1,26 @@
+{
+  "CompanyCodeSet": [{
+        "Bukrs": "100",
+        "Butxt": "CompanyCode100"
+    },{
+        "Bukrs": "200",
+        "Butxt": "CompanyCode200"
+       
+    },{
+        "Bukrs": "300",
+        "Butxt": "CompanyCode300"
+        
+    },{
+        "Bukrs": "400",
+        "Butxt": "CompanyCode400"
+       
+    },{
+        "Bukrs": "500",
+        "Butxt": "CompanyCode500"
+        
+    },{
+        "Bukrs": "600",
+        "Butxt": "CompanyCode600"
+       
+    }]
+}

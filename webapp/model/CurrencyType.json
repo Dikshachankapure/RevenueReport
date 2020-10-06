@@ -1,0 +1,22 @@
+{
+  "CurrencyTypeSet": [{
+        "Curtp": "1",
+        "Sprsl": "INR"
+    },{
+        "Curtp": "2",
+        "Sprsl": "EUR"
+       
+    },{
+        "Curtp": "3",
+        "Sprsl": "USD"
+        
+    },{
+        "Curtp": "4",
+        "Sprsl": "JPY"
+       
+    },{
+        "Curtp": "5",
+        "Sprsl": "GBP"
+        
+    }]
+}

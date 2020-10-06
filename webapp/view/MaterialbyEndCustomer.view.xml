@@ -1,0 +1,133 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" 
+		  xmlns="sap.m" 
+		  controllerName="RevenueReport.controller.MaterialbyEndCustomer"
+		  xmlns:html="http://www.w3.org/1999/xhtml"
+		  xmlns:layout="sap.ui.layout"
+		  xmlns:viz="sap.viz.ui5.controls"
+		  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    	  xmlns:viz.data="sap.viz.ui5.data">
+	<App>
+		<Page id="reportLevel3" title="{i18n>title}" navButtonPress="onNavBack"
+		showNavButton="true">
+			<content>
+					<Table id="tblMaterialbyEndCustomer"
+								inset="false"
+								items="{
+									path: '/MaterialByEndCustomer',
+									sorter: {
+										path: 'MaterialText'
+									}
+								}">
+								<headerToolbar>
+									<Toolbar>
+										<Title id="tableHeader" text="Revenue by End Customer"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+								
+									<Column demandPopin="true">
+										<Text text="Material Text" />
+									</Column>
+									<Column>
+										<Text text="Apr" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="May" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jun" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jul" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Aug" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Sep" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Oct" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Nov" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Dec" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jan" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Feb" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Mar" minScreenWidth="Tablet"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{MaterialText}" />
+											<Text text="{Apr}" />
+											<Text text="{May}" />
+											<Text text="{Jun}" />
+											<Text text="{Jul}" />
+											<Text text="{Aug}" />
+											<Text text="{Sep}" />
+											<Text text="{Oct}" />
+											<Text text="{Nov}" />
+											<Text text="{Dec}" />
+											<Text text="{Jan}" />
+											<Text text="{Feb}" />
+											<Text text="{Mar}" />
+										</cells>
+								</ColumnListItem>
+								</items>
+						</Table>
+					<layout:FixFlex id='chartFixFlex'>
+		        		<layout:flexContent>
+			            	<viz:Popover id="idPopOver"></viz:Popover>
+				            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='line'>
+				                	<viz:dataset>
+				                    	<viz.data:FlattenedDataset data="{/MaterialByEndCustomer}">
+				                        <viz.data:dimensions>
+				                            <viz.data:DimensionDefinition name="Month"
+				                                value="{Month}" />
+				                        </viz.data:dimensions>
+				                        <viz.data:measures>
+				                            <viz.data:MeasureDefinition name="Material01"
+				                                value="{Material01}" />
+				                            <viz.data:MeasureDefinition name="Material02"
+				                                value="{Material02}" />
+				                            <viz.data:MeasureDefinition name="Material03"
+				                                value="{Material03}" />
+				                        </viz.data:measures>
+				                    </viz.data:FlattenedDataset>
+				            		</viz:dataset>
+				                	<viz:feeds>
+				                    <viz.feeds:FeedItem id='valueAxisFeed1' uid="valueAxis" type="Measure"
+				                        values="Material01" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis" type="Measure"
+				                        values="Material02" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed3' uid="valueAxis" type="Measure"
+				                        values="Material03" />
+				                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+				                        values="Month" />
+				                </viz:feeds>
+				            </viz:VizFrame>
+		        		</layout:flexContent>
+		    		</layout:FixFlex>
+			</content>
+			<footer>
+				<Toolbar>
+					<content>
+						<ToolbarSpacer />
+						<Button type="Accept" icon="sap-icon://excel-attachment" text="Download Excel" />
+					</content>
+				</Toolbar>
+			</footer>
+		</Page>
+	</App>
+</mvc:View>

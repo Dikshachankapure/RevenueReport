@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+		<SelectDialog
+		id="CompCodePopup"
+		noDataText="{i18n>notfound}"
+		title="{i18n>selectCompCode}"
+		search="fnhandleSearchCompCode"
+		confirm="fnCloseDialogCompCode"
+		cancel="fnCancelDialogCompCode"
+		items="{
+			path: '/CompanyCodeSet'
+		}" >
+		<StandardListItem
+			title="{Butxt}"
+			description="{Bukrs}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

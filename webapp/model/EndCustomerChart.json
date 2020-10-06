@@ -1,0 +1,192 @@
+{
+  "RevenuebyEndCustomerAmount": [{
+        "Month": "April",
+        "Customer 01": 200000.00,
+        "Customer 02": 100000.00,
+        "Customer 03": 200000.00,
+        "Customer 04": 100000.00,
+        "Customer 05": 210000.00
+    },
+    {
+        "Month": "May",
+        "Customer 01": 300000.00,
+        "Customer 02": 200000.00,
+        "Customer 03": 300000.00,
+        "Customer 04": 300000.00,
+        "Customer 05": 320000.00
+    },
+    {
+        "Month": "June",
+        "Customer 01": 100000.00,
+        "Customer 02": 300000.00,
+        "Customer 03": 400000.00,
+        "Customer 04": 500000.00,
+        "Customer 05": 430000.00
+    },
+    {
+        "Month": "July",
+        "Customer 01": 200000.00,
+        "Customer 02": 200000.00,
+        "Customer 03": 500000.00,
+        "Customer 04": 700000.00,
+        "Customer 05": 540000.00
+    },
+    {
+        "Month": "Aug",
+        "Customer 01": 300000.00,
+        "Customer 02": 300000.00,
+        "Customer 03": 600000.00,
+        "Customer 04": 850000.00,
+        "Customer 05": 650000.00
+    },{
+        "Month": "Sep",
+        "Customer 01": 400000.00,
+        "Customer 02": 400000.00,
+        "Customer 03": 100000.00,
+        "Customer 04": 200000.00,
+        "Customer 05": 160000.00
+    },
+    {
+        "Month": "Oct",
+        "Customer 01": 500000.00,
+        "Customer 02": 500000.00,
+        "Customer 03": 600000.00,
+        "Customer 04": 450000.00,
+        "Customer 05": 670000.00
+    },
+    {
+        "Month": "Nov",
+        "Customer 01": 600000.00,
+        "Customer 02": 400000.00,
+        "Customer 03": 800000.00,
+        "Customer 04": 600000.00,
+        "Customer 05": 880000.00
+    },
+    {
+        "Month": "Dec",
+        "Customer 01": 700000.00,
+        "Customer 02": 600000.00,
+        "Customer 03": 200000.00,
+        "Customer 04": 800000.00,
+        "Customer 05": 290000.00
+    },
+    {
+        "Month": "Jan",
+        "Customer 01": 800000.00,
+        "Customer 02": 700000.00,
+        "Customer 03": 100000.00,
+        "Customer 04": 100000.00,
+        "Customer 05": 110000.00
+    },
+    {
+        "Month": "Feb",
+        "Customer 01": 900000.00,
+        "Customer 02": 800000.00,
+        "Customer 03": 500000.00,
+        "Customer 04": 550000.00,
+        "Customer 05": 520000.00
+    },
+    {
+        "Month": "Mar",
+        "Customer 01": 100000.00,
+        "Customer 02": 900000.00,
+        "Customer 03": 100000.00,
+        "Customer 04": 110000.00,
+        "Customer 05": 130000.00
+    }],
+     "RevenuebyEndCustomerQty": [{
+        "Month": "April",
+        "Customer 01": 200,
+        "Customer 02": 100,
+        "Customer 03": 200,
+        "Customer 04": 700,
+        "Customer 05": 200
+    },
+    {
+        "Month": "May",
+        "Customer 01": 300,
+        "Customer 02": 200,
+        "Customer 03": 300,
+        "Customer 04": 500,
+        "Customer 05": 400
+    },
+    {
+        "Month": "June",
+        "Customer 01": 100,
+        "Customer 02": 300,
+        "Customer 03": 400,
+        "Customer 04": 500,
+        "Customer 05": 400
+    },
+    {
+        "Month": "July",
+        "Customer 01": 250,
+        "Customer 02": 200,
+        "Customer 03": 500,
+        "Customer 04": 400,
+        "Customer 05": 500
+    },
+    {
+        "Month": "Aug",
+        "Customer 01": 340,
+        "Customer 02": 300,
+        "Customer 03": 600,
+        "Customer 04": 300,
+        "Customer 05": 600
+    },{
+        "Month": "Sep",
+        "Customer 01": 450,
+        "Customer 02": 400,
+        "Customer 03": 100,
+        "Customer 04": 200,
+        "Customer 05": 100
+    },
+    {
+        "Month": "Oct",
+        "Customer 01": 200,
+        "Customer 02": 500,
+        "Customer 03": 600,
+        "Customer 04": 100,
+        "Customer 05": 600
+    },
+    {
+        "Month": "Nov",
+        "Customer 01": 670,
+        "Customer 02": 600,
+        "Customer 03": 800,
+        "Customer 04": 200,
+        "Customer 05": 800
+    },
+    {
+        "Month": "Dec",
+        "Customer 01": 770,
+        "Customer 02": 700,
+        "Customer 03": 200,
+        "Customer 04": 300,
+        "Customer 05": 200
+    },
+    {
+        "Month": "Jan",
+        "Customer 01": 890,
+        "Customer 02": 800,
+        "Customer 03": 100,
+        "Customer 04": 500,
+        "Customer 05": 100
+    },
+    {
+        "Month": "Feb",
+        "Customer 01": 910,
+        "Customer 02": 900,
+        "Customer 03": 500,
+        "Customer 04": 700,
+        "Customer 05": 500
+    },
+    {
+        "Month": "Mar",
+        "Customer 01": 120,
+        "Customer 02": 100,
+        "Customer 03": 100,
+        "Customer 04": 900,
+        "Customer 05": 100
+    }]
+}

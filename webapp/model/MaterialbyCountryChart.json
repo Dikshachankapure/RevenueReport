@@ -1,0 +1,73 @@
+{
+  "MaterialByCountry": [{
+        "Month": "April",
+        "Material01": 100,
+        "Material02": 300,
+        "Material03": 500
+    },
+    {
+        "Month": "May",
+        "Material01": 200,
+        "Material02": 400,
+        "Material03": 600
+    },
+    {
+        "Month": "June",
+        "Material01": 100,
+        "Material02": 200,
+        "Material03": 300
+    },
+    {
+        "Month": "July",
+        "Material01": 100,
+        "Material02": 500,
+        "Material03": 700
+    },
+    {
+        "Month": "Aug",
+        "Material01": 200,
+        "Material02": 300,
+        "Material03": 400
+    },{
+        "Month": "Sep",
+        "Material01": 400,
+        "Material02": 500,
+        "Material03": 600
+    },
+    {
+        "Month": "Oct",
+        "Material01": 500,
+        "Material02": 400,
+        "Material03": 300
+    },
+    {
+        "Month": "Nov",
+        "Material01": 200,
+        "Material02": 300,
+        "Material03": 400
+    },
+    {
+        "Month": "Dec",
+        "Material01": 500,
+        "Material02": 600,
+        "Material03": 700
+    },
+    {
+        "Month": "Jan",
+        "Material01": 300,
+        "Material02": 200,
+        "Material03": 100
+    },
+    {
+        "Month": "Feb",
+        "Material01": 100,
+        "Material02": 400,
+        "Material03": 500
+    },
+    {
+        "Month": "Mar",
+        "Material01": 200,
+        "Material02": 300,
+        "Material03": 500
+    }]
+}

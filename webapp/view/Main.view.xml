@@ -1,0 +1,622 @@
+<mvc:View controllerName="RevenueReport.controller.Main"
+		  xmlns="sap.m" 
+		  xmlns:core="sap.ui.core"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:layout="sap.ui.layout" 
+		  xmlns:viz="sap.viz.ui5.controls" 
+		  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
+		  xmlns:viz.data="sap.viz.ui5.data">
+		<App id="app">
+			<Page id="page1" navButtonPress="onNavBack" showNavButton="true" title="{i18n>appTitle}">
+				<content>
+					<layout:FixFlex id='lfixflex' >
+						<layout:fixContent>
+							<Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="true" headerText="Search" width="auto">
+							<content>
+								<layout:Grid defaultSpan="XL4 L4 M4 S12">
+									<layout:VerticalLayout>
+										<Label text="{i18n>companycode}" required="true"/>
+										<Input
+											id="txtCompanyCode"
+											type="Text"
+											textFormatMode="KeyValue"
+											placeholder="{i18n>entercompanycode}"
+											showValueHelp="true"
+											valueHelpRequest="fnCompCodeSearchHelp"
+											showSuggestion="true"
+											valueHelpOnly="true"
+											valueStateText="Enter Company Code"
+											suggestionItems="{/CompanyCodeSet}"
+											suggestionItemSelected="suggestionItemSelected">
+											<suggestionItems>
+												<core:ListItem key="{Bukrs}" text="{Butxt}" additionalText="{Bukrs}"/>
+											</suggestionItems>
+										</Input>
+									</layout:VerticalLayout>
+									<layout:VerticalLayout>
+										<Label text="Fiscal Year"/>
+										<Input id="txtFiscalyear"/>
+									</layout:VerticalLayout>
+									<layout:VerticalLayout>
+										<Label text="{i18n>currType}" required="true"/>
+										<Input
+											id="txtCurrencyType"
+											type="Text"
+											textFormatMode="KeyValue"
+											placeholder="{i18n>entercurrencytype}"
+											showValueHelp="true"
+											valueHelpRequest="fnCurrTypeSearchHelp"
+											showSuggestion="true"
+											valueHelpOnly="true"
+											valueStateText="Enter Currency Type"
+											suggestionItems="{/CurrencyTypeSet}"
+											suggestionItemSelected="suggestionItemSelected">
+											<suggestionItems>
+												<core:ListItem key="{Curtp}" text="{Sprsl}" additionalText="{Curtp}"/>
+											</suggestionItems>
+										</Input>
+										
+									</layout:VerticalLayout>
+								</layout:Grid>
+								<layout:Grid defaultSpan="XL4 L4 M4 S12">
+									<layout:VerticalLayout>
+										<Label text=""/>
+										<RadioButtonGroup columns="3" id="rdbOptions1" select="radiobuttonselect" class="sapUiMediumMarginBottom">
+												<buttons>
+													<RadioButton id="rdbEndCustomer" text="End Customer"/>
+													<RadioButton id="rdbShipToCountry" text="Ship To Country"/>
+												</buttons>
+											</RadioButtonGroup>
+									
+											
+									</layout:VerticalLayout>
+									<layout:VerticalLayout>
+											<Label text=""/>
+											<RadioButtonGroup columns="2" id="rdbOptions2" select="radiobuttonselect1" class="sapUiMediumMarginBottom">
+												<buttons>
+													<RadioButton id="rdbAmount" text="Amount" select="fnSelectAmount"/>
+													<RadioButton id="rdbQty" text="Quantity" select="fnSelectQty" />
+												</buttons>
+										</RadioButtonGroup>
+									</layout:VerticalLayout>
+									<layout:VerticalLayout>
+											<Label text="UOM" id="lbluom" visible="false"/>
+											<Input id="txtuom" visible="false" value="EA"/>
+									</layout:VerticalLayout>
+								</layout:Grid>
+								<layout:Grid defaultSpan="XL4 L4 M4 S12">
+									<layout:VerticalLayout>
+										<Label text=""/>
+										<Button type="Accept" width="180px" icon="sap-icon://search" press="fnSearch" text="{i18n>search}"/>
+									</layout:VerticalLayout>
+								</layout:Grid>
+							</content>
+						</Panel>
+						</layout:fixContent>
+						<layout:fixContent>
+							<Table
+								id="tblEndCustomerAmount"
+								class="sapUiResponsiveMargin padding10"
+								growing="true"
+								visible="false"
+								growingScrollToLoad="false"
+								noDataText="{i18n>nodatafound}"
+								width="auto"
+								items="{
+									path: '/RevenueByEndCustomerAmount',
+									sorter: {
+										path: 'CustomerName',
+										descending: false
+									},
+									parameters: {
+										'expand': 'CustomerID'
+									}
+								}">
+								<headerToolbar>
+									<Toolbar>
+										<Title id="tableHeader" text="Revenue by End Customer (Amount)"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="120px">
+										<Text
+											text="End Customer" />
+									</Column>
+									
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Apr"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="May"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Jun"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Jul"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Aug"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Sep"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Oct"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Nov"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Dec"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Jan"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Feb"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Mar"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem
+										type="Inactive">
+										<cells>
+											<Link text="{CustomerName}" press="onPressEndCustomer"/>
+											<Text text="{Apr}" />
+											<Text text="{May}" />
+											<Text text="{Jun}" />
+											<Text text="{Jul}" />
+											<Text text="{Aug}" />
+											<Text text="{Sep}" />
+											<Text text="{Oct}" />
+											<Text text="{Nov}" />
+											<Text text="{Dec}" />
+											<Text text="{Jan}" />
+											<Text text="{Feb}" />
+											<Text text="{Mar}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table
+								id="tblEndCustomerQty"
+								class="sapUiResponsiveMargin"
+								growing="true"
+								visible="false"
+								growingScrollToLoad="true"
+								noDataText="{i18n>nodatafound}"
+								width="auto"
+								items="{
+									path: '/RevenueByEndCustomerQty',
+									sorter: {
+										path: 'CustomerName',
+										descending: false
+									},
+									parameters: {
+										'expand': 'CustomerID'
+									}
+								}">
+								<headerToolbar>
+									<Toolbar>
+										<Title id="tableHeader1" text="Revenue by End Customer (Quantity)"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="120px">
+										<Text
+											text="End Customer" />
+									</Column>
+									
+									<Column>
+										<Text text="Apr"/>
+									</Column>
+									<Column>
+										<Text text="May"/>
+									</Column>
+									<Column>
+										<Text text="Jun"/>
+									</Column>
+									<Column>
+										<Text text="Jul"/>
+									</Column>
+									<Column>
+										<Text text="Aug"/>
+									</Column>
+									<Column>
+										<Text text="Sep"/>
+									</Column>
+									<Column>
+										<Text text="Oct"/>
+									</Column>
+									<Column>
+										<Text text="Nov"/>
+									</Column>
+									<Column>
+										<Text text="Dec"/>
+									</Column>
+									<Column>
+										<Text text="Jan"/>
+									</Column>
+									<Column>
+										<Text text="Feb"/>
+									</Column>
+									<Column>
+										<Text text="Mar"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem
+										type="Inactive">
+										<cells>
+											<Link text="{CustomerName}" press="onPressEndCustomer"/>
+											<Text text="{Apr}" />
+											<Text text="{May}" />
+											<Text text="{Jun}" />
+											<Text text="{Jul}" />
+											<Text text="{Aug}" />
+											<Text text="{Sep}" />
+											<Text text="{Oct}" />
+											<Text text="{Nov}" />
+											<Text text="{Dec}" />
+											<Text text="{Jan}" />
+											<Text text="{Feb}" />
+											<Text text="{Mar}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table
+								id="tblShipToCountryAmount"
+								class="sapUiResponsiveMargin"
+								growing="true"
+								visible="false"
+								growingScrollToLoad="true"
+								noDataText="{i18n>nodatafound}"
+								width="auto"
+								items="{
+									path: '/RevenueByCountryAmount',
+									sorter: {
+										path: 'CountryName',
+										descending: false
+									},
+									parameters: {
+										'expand': 'CountryID'
+									}
+								}">
+								<headerToolbar>
+									<Toolbar>
+										<Title id="tableHeader2" text="Revenue by Ship to Country (Amount)"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="120px">
+										<Text
+											text="Ship to Country"/>
+									</Column>
+									
+									<Column>
+										<Text text="Apr" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="May" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jun" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jul" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Aug" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Sep" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Oct" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Nov" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Dec" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jan" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Feb" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Mar" minScreenWidth="Tablet"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem
+										type="Inactive">
+										<cells>
+											<Link text="{CountryName}" press="onPressShipToCountry" />
+											<Text text="{Apr}" />
+											<Text text="{May}" />
+											<Text text="{Jun}" />
+											<Text text="{Jul}" />
+											<Text text="{Aug}" />
+											<Text text="{Sep}" />
+											<Text text="{Oct}" />
+											<Text text="{Nov}" />
+											<Text text="{Dec}" />
+											<Text text="{Jan}" />
+											<Text text="{Feb}" />
+											<Text text="{Mar}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table
+								id="tblShipToCountryQty"
+								class="sapUiResponsiveMargin"
+								growing="true"
+								visible="false"
+								growingScrollToLoad="true"
+								noDataText="{i18n>nodatafound}"
+								width="auto"
+								items="{
+									path: '/RevenueByCountryQty',
+									sorter: {
+										path: 'CountryName',
+										descending: false
+									},
+									parameters: {
+										'expand': 'CountryID'
+									}
+								}">
+								<headerToolbar>
+									<Toolbar>
+										<Title id="tableHeader3" text="Revenue by Ship to Country (Quantity)"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="120px">
+										<Text
+											text="Ship to Country"/>
+									</Column>
+									
+									<Column>
+										<Text text="Apr" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="May" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jun" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jul" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Aug" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Sep" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Oct" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Nov" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Dec" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Jan" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Feb" minScreenWidth="Tablet"/>
+									</Column>
+									<Column>
+										<Text text="Mar" minScreenWidth="Tablet"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem
+										type="Inactive">
+										<cells>
+											<Link text="{CountryName}" press="onPressShipToCountry" />
+											<Text text="{Apr}" />
+											<Text text="{May}" />
+											<Text text="{Jun}" />
+											<Text text="{Jul}" />
+											<Text text="{Aug}" />
+											<Text text="{Sep}" />
+											<Text text="{Oct}" />
+											<Text text="{Nov}" />
+											<Text text="{Dec}" />
+											<Text text="{Jan}" />
+											<Text text="{Feb}" />
+											<Text text="{Mar}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</layout:fixContent>
+					</layout:FixFlex>
+					<layout:FixFlex id='lfixflex1'>	
+						<layout:flexContent id="countryFlexAmount">
+			        		<viz:Popover id="idPopOverSTOC"></viz:Popover>
+				            <viz:VizFrame id="idVizFrameSTOC" uiConfig="{applicationSet:'fiori'}"
+				                height='100%' width="100%" vizType='line' visible="false">
+				                <viz:dataset>
+				                    <viz.data:FlattenedDataset data="{/RevenueByCountryAmountChart}">
+				                        <viz.data:dimensions>
+				                            <viz.data:DimensionDefinition name="Month"
+				                                value="{Month}" />
+				                        </viz.data:dimensions>
+				                        <viz.data:measures>
+				                            <viz.data:MeasureDefinition name="Japan"
+				                                value="{Japan}" />
+				                            <viz.data:MeasureDefinition name="China"
+				                                value="{China}" />
+				                            <viz.data:MeasureDefinition name="India"
+				                                value="{India}" />
+				                            <viz.data:MeasureDefinition name="Canada"
+				                                value="{Canada}" />
+				                            <viz.data:MeasureDefinition name="UK"
+				                                value="{UK}" />
+				                        </viz.data:measures>
+				                    </viz.data:FlattenedDataset>
+				                </viz:dataset>
+				                <viz:feeds>
+				                    <viz.feeds:FeedItem id='valueAxisFeedJapan' uid="valueAxis" type="Measure"
+				                        values="Japan" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedChina' uid="valueAxis" type="Measure"
+				                        values="China" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedIndia' uid="valueAxis" type="Measure"
+				                        values="India" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedCanada' uid="valueAxis" type="Measure"
+				                        values="Canada" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedUK' uid="valueAxis" type="Measure"
+				                        values="UK" />    
+				                    <viz.feeds:FeedItem id='categoryAxisFeedCountry' uid="categoryAxis" type="Dimension"
+				                        values="Month" />
+				                </viz:feeds>
+			        		</viz:VizFrame>
+        				</layout:flexContent>
+					</layout:FixFlex>
+					<layout:FixFlex id='lfixflex3'>	
+						<layout:flexContent id="countryFlexQty">
+			        		<viz:Popover id="idPopOverSTOCQty"></viz:Popover>
+				            <viz:VizFrame id="idVizFrameSTOCQty" uiConfig="{applicationSet:'fiori'}"
+				                height='100%' width="100%" vizType='line' visible="false">
+				                <viz:dataset>
+				                    <viz.data:FlattenedDataset data="{/RevenueByCountryQtyChart}">
+				                        <viz.data:dimensions>
+				                            <viz.data:DimensionDefinition name="Month"
+				                                value="{Month}" />
+				                        </viz.data:dimensions>
+				                        <viz.data:measures>
+				                            <viz.data:MeasureDefinition name="Japan"
+				                                value="{Japan}" />
+				                            <viz.data:MeasureDefinition name="China"
+				                                value="{China}" />
+				                            <viz.data:MeasureDefinition name="India"
+				                                value="{India}" />
+				                            <viz.data:MeasureDefinition name="Canada"
+				                                value="{Canada}" />
+				                            <viz.data:MeasureDefinition name="UK"
+				                                value="{UK}" />
+				                        </viz.data:measures>
+				                    </viz.data:FlattenedDataset>
+				                </viz:dataset>
+				                <viz:feeds>
+				                    <viz.feeds:FeedItem id='valueAxisFeedJapanQty' uid="valueAxis" type="Measure"
+				                        values="Japan" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedChinaQty' uid="valueAxis" type="Measure"
+				                        values="China" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedIndiaQty' uid="valueAxis" type="Measure"
+				                        values="India" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedCanadaQty' uid="valueAxis" type="Measure"
+				                        values="Canada" />
+				                    <viz.feeds:FeedItem id='valueAxisFeedUKQty' uid="valueAxis" type="Measure"
+				                        values="UK" />    
+				                    <viz.feeds:FeedItem id='categoryAxisFeedCountryQty' uid="categoryAxis" type="Dimension"
+				                        values="Month" />
+				                </viz:feeds>
+			        		</viz:VizFrame>
+        				</layout:flexContent>
+					</layout:FixFlex>
+					<layout:FixFlex id='lfixflex2'>	
+						<layout:flexContent id="customerFlexAmount">
+			        		<viz:Popover id="idPopOverEndCustomer"></viz:Popover>
+				            <viz:VizFrame id="idVizFrameEndCustomer" uiConfig="{applicationSet:'fiori'}"
+				                height='100%' width="100%" vizType='line' visible="false">
+				                <viz:dataset>
+				                    <viz.data:FlattenedDataset data="{/RevenuebyEndCustomerAmount}">
+				                        <viz.data:dimensions>
+				                            <viz.data:DimensionDefinition name="Month"
+				                                value="{Month}" />
+				                        </viz.data:dimensions>
+				                        <viz.data:measures>
+				                            <viz.data:MeasureDefinition name="Customer 01"
+				                                value="{Customer 01}" />
+				                            <viz.data:MeasureDefinition name="Customer 02"
+				                                value="{Customer 02}" />
+				                            <viz.data:MeasureDefinition name="Customer 03"
+				                                value="{Customer 03}" />
+				                            <viz.data:MeasureDefinition name="Customer 04"
+				                                value="{Customer 04}" />
+				                            <viz.data:MeasureDefinition name="Customer 05"
+				                                value="{Customer 05}" />    
+				                        </viz.data:measures>
+				                    </viz.data:FlattenedDataset>
+				                </viz:dataset>
+				                <viz:feeds>
+				                    <viz.feeds:FeedItem id='valueAxisFeed1' uid="valueAxis" type="Measure"
+				                        values="Customer 01" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis" type="Measure"
+				                        values="Customer 02" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed3' uid="valueAxis" type="Measure"
+				                        values="Customer 03" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed4' uid="valueAxis" type="Measure"
+				                        values="Customer 04" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed5' uid="valueAxis" type="Measure"
+				                        values="Customer 05" />    
+				                    <viz.feeds:FeedItem id='categoryAxisFeedEndCusomer' uid="categoryAxis" type="Dimension"
+				                        values="Month" />
+				                </viz:feeds>
+			        		</viz:VizFrame>
+			        	</layout:flexContent>	
+			        </layout:FixFlex>	
+			        <layout:FixFlex id='lfixflex4'>	
+						<layout:flexContent id="customerFlexQty">
+			        		<viz:Popover id="idPopOverEndCustomerQty"></viz:Popover>
+				            <viz:VizFrame id="idVizFrameEndCustomerQty" uiConfig="{applicationSet:'fiori'}"
+				                height='100%' width="100%" vizType='line' visible="false">
+				                <viz:dataset>
+				                    <viz.data:FlattenedDataset data="{/RevenuebyEndCustomerQty}">
+				                        <viz.data:dimensions>
+				                            <viz.data:DimensionDefinition name="Month"
+				                                value="{Month}" />
+				                        </viz.data:dimensions>
+				                        <viz.data:measures>
+				                            <viz.data:MeasureDefinition name="Customer 01"
+				                                value="{Customer 01}" />
+				                            <viz.data:MeasureDefinition name="Customer 02"
+				                                value="{Customer 02}" />
+				                            <viz.data:MeasureDefinition name="Customer 03"
+				                                value="{Customer 03}" />
+				                            <viz.data:MeasureDefinition name="Customer 04"
+				                                value="{Customer 04}" />
+				                            <viz.data:MeasureDefinition name="Customer 05"
+				                                value="{Customer 05}" />    
+				                        </viz.data:measures>
+				                    </viz.data:FlattenedDataset>
+				                </viz:dataset>
+				                <viz:feeds>
+				                    <viz.feeds:FeedItem id='valueAxisFeed1Qty' uid="valueAxis" type="Measure"
+				                        values="Customer 01" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed2Qty' uid="valueAxis" type="Measure"
+				                        values="Customer 02" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed3Qty' uid="valueAxis" type="Measure"
+				                        values="Customer 03" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed4Qty' uid="valueAxis" type="Measure"
+				                        values="Customer 04" />
+				                    <viz.feeds:FeedItem id='valueAxisFeed5Qty' uid="valueAxis" type="Measure"
+				                        values="Customer 05" />    
+				                    <viz.feeds:FeedItem id='categoryAxisFeedEndCusomerQty' uid="categoryAxis" type="Dimension"
+				                        values="Month" />
+				                </viz:feeds>
+			        		</viz:VizFrame>
+			        	</layout:flexContent>	
+			        </layout:FixFlex>	
+				</content>
+			</Page>
+		</App>	
+</mvc:View>

@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+		<SelectDialog
+		id="CurrTypePopup"
+		noDataText="{i18n>notfound}"
+		title="{i18n>selectCurrType}"
+		search="handleSearchCurrType"
+		confirm="fnCloseDialogCurrType"
+		cancel="fnCancelDialogCurrType"
+		items="{
+			path: '/CurrencyTypeSet'
+		}" >
+		<StandardListItem
+			title="{Sprsl}"
+			description="{Curtp}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,192 @@
+{
+  "RevenueByCountryAmountChart": [{
+        "Month": "April",
+        "Japan": 10000.00,
+        "China": 10000.00,
+        "India": 20000.00,
+        "Canada": 20000.00,
+        "UK": 10000.00
+    },
+    {
+        "Month": "May",
+        "Japan": 30000.00,
+        "China": 20000.00,
+        "India": 30000.00,
+        "Canada": 30000.00,
+        "UK": 20000.00
+    },
+    {
+        "Month": "June",
+        "Japan": 40000.00,
+        "China": 30000.00,
+        "India": 40000.00,
+        "Canada": 10000.00,
+        "UK": 30000.00
+    },
+    {
+        "Month": "July",
+        "Japan": 50000.00,
+        "China": 20000.00,
+        "India": 50000.00,
+        "Canada": 20000.00,
+        "UK": 40000.00
+    },
+    {
+        "Month": "Aug",
+        "Japan": 40000.00,
+        "China": 30000.00,
+        "India": 60000.00,
+        "Canada": 30000.00,
+        "UK":50000.00
+    },{
+        "Month": "Sep",
+        "Japan": 40000.00,
+        "China": 30000.00,
+        "India": 60000.00,
+        "Canada": 30000.00,
+        "UK":50000.00
+    },
+    {
+        "Month": "Oct",
+        "Japan": 15000.00,
+        "China": 40000.00,
+        "India": 10000.00,
+        "Canada": 40000.00,
+        "UK": 60000.00
+    },
+    {
+        "Month": "Nov",
+        "Japan": 35000.00,
+        "China": 60000.00,
+        "India": 80000.00,
+        "Canada": 60000.00,
+        "UK": 80000.00
+    },
+    {
+        "Month": "Dec",
+        "Japan": 40000.00,
+        "China": 70000.00,
+        "India": 20000.00,
+        "Canada": 70000.00,
+        "UK": 90000.00
+    },
+    {
+        "Month": "Jan",
+        "Japan": 20000.00,
+        "China": 80000.00,
+        "India": 10000.00,
+        "Canada":80000.00,
+        "UK":10000.00
+    },
+    {
+        "Month": "Feb",
+        "Japan": 30000.00,
+        "China": 90000.00,
+        "India": 50000.00,
+        "Canada": 90000.00,
+        "UK": 20000.00
+    },
+    {
+        "Month": "Mar",
+        "Japan": 10000.00,
+        "China":10000.00,
+        "India": 10000.00,
+        "Canada": 10000.00,
+        "UK": 30000.00
+    }],
+    "RevenueByCountryQtyChart": [{
+        "Month": "April",
+        "Japan": 100,
+        "China": 300,
+        "India": 500,
+        "Canada": 200,
+        "UK": 400
+    },
+    {
+        "Month": "May",
+        "Japan": 300,
+        "China": 200,
+        "India": 300,
+        "Canada":300,
+        "UK": 700
+    },
+    {
+        "Month": "June",
+        "Japan": 500,
+        "China": 300,
+        "India": 400,
+        "Canada": 100,
+        "UK": 500
+    },
+    {
+        "Month": "July",
+        "Japan": 100,
+        "China": 300,
+        "India": 500,
+        "Canada": 200,
+        "UK": 400
+    },
+    {
+        "Month": "Aug",
+        "Japan": 900,
+        "China": 300,
+        "India": 600,
+        "Canada": 300,
+        "UK": 100
+    },{
+        "Month": "Sep",
+        "Japan": 200,
+        "China": 400,
+        "India": 100,
+        "Canada": 400,
+        "UK": 200
+    },
+    {
+        "Month": "Oct",
+        "Japan": 300,
+        "China": 500,
+        "India": 600,
+        "Canada": 500,
+        "UK": 400
+    },
+    {
+        "Month": "Nov",
+        "Japan": 600,
+        "China": 600,
+        "India": 800,
+        "Canada": 600,
+        "UK": 800
+    },
+    {
+        "Month": "Dec",
+        "Japan": 800,
+        "China": 700,
+        "India": 200,
+        "Canada": 700,
+        "UK": 800
+    },
+    {
+        "Month": "Jan",
+        "Japan": 100,
+        "China": 800,
+        "India": 100,
+        "Canada": 800,
+        "UK": 100
+    },
+    {
+        "Month": "Feb",
+        "Japan": 200,
+        "China": 900,
+        "India": 500,
+        "Canada": 900,
+        "UK": 500
+    },
+    {
+        "Month": "Mar",
+        "Japan": 300,
+        "China": 100,
+        "India": 100,
+        "Canada": 100,
+        "UK": 900
+    }]
+}
